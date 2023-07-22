@@ -35,91 +35,87 @@ document.addEventListener('DOMContentLoaded',() => {
   createBoard();
 
 //Drag the candies
-let colorBeingDragged;
-let colorBeingReplaced;
-let squareIdBeingDragged; 
-let squareIdBeingReplaced;
+  let colorBeingDragged;
+  let colorBeingReplaced;
+  let squareIdBeingDragged; 
+  let squareIdBeingReplaced;
 
-squares.forEach(SQUARE => {
-  SQUARE.addEventListener('dragstart', dragStart);
-  SQUARE.addEventListener('dragover', dragOver);
-  SQUARE.addEventListener('dragenter', dragEnter);
-  SQUARE.addEventListener('dragleave', dragLeave);
-  SQUARE.addEventListener('drop', dragDrop);
-  SQUARE.addEventListener('dragend', dragEnd);
-})
+  squares.forEach(SQUARE => {
+    SQUARE.addEventListener('dragstart', dragStart);
+    SQUARE.addEventListener('dragover', dragOver);
+    SQUARE.addEventListener('dragenter', dragEnter);
+    SQUARE.addEventListener('dragleave', dragLeave);
+    SQUARE.addEventListener('drop', dragDrop);
+    SQUARE.addEventListener('dragend', dragEnd);
+  })
 
-function dragStart(){
-  colorBeingDragged = this.style.backgroundColor;
-  squareIdBeingDragged = parseInt(this.id); 
-  //console.log(colorBeingDragged);
-  console.log(this.id,'dragstart');
-} 
+  function dragStart(){
+    colorBeingDragged = this.style.backgroundColor;
+    squareIdBeingDragged = parseInt(this.id); 
+    //console.log(colorBeingDragged);
+    console.log(this.id,'dragstart');
+  } 
 
-function dragOver(e){
-  e.preventDefault();
-  console.log(this.id,'dragover');
-} 
+  function dragOver(e){
+    e.preventDefault();
+    console.log(this.id,'dragover');
+  } 
 
-function dragEnter(e){
-  e.preventDefault();
-  console.log(this.id,'dragenter');
-} 
+  function dragEnter(e){
+    e.preventDefault();
+    console.log(this.id,'dragenter');
+  } 
 
-function dragLeave(){
-  console.log(this.id,'dragleave');
-} 
+  function dragLeave(){
+    console.log(this.id,'dragleave');
+  } 
 
-function dragDrop(){
-  colorBeingReplaced = this.style.backgroundColor;
-  squareIdBeingReplaced = parseInt(this.id);
-  console.log(this.id,'dragdrop');
-  
-  squares[squareIdBeingDragged].style.backgroundColor = colorBeingReplaced;
-  this.style.backgroundColor = colorBeingDragged;
-} 
+  function dragDrop(){
+    colorBeingReplaced = this.style.backgroundColor;
+    squareIdBeingReplaced = parseInt(this.id);
+    console.log(this.id,'dragdrop');
+    
+    squares[squareIdBeingDragged].style.backgroundColor = colorBeingReplaced;
+    this.style.backgroundColor = colorBeingDragged;
+  } 
 
-function dragEnd(){
-  console.log(this.id,'dragend');
+  function dragEnd(){
+    console.log(this.id,'dragend');
 //What is a valid move?
-  let validMoves = [
-    squareIdBeingDragged - 1, 
-    squareIdBeingDragged - width,
-    squareIdBeingDragged + 1,
-    squareIdBeingDragged + width
-  ];
+    let validMoves = [
+      squareIdBeingDragged - 1, 
+      squareIdBeingDragged - width,
+      squareIdBeingDragged + 1,
+      squareIdBeingDragged + width
+    ];
 
-  let validMove = validMoves.includes(squareIdBeingReplaced);
+    let validMove = validMoves.includes(squareIdBeingReplaced);
 
-  if(squareIdBeingReplaced && validMove){
-    squareIdBeingReplaced = null;
-  }
-  else if(squareIdBeingReplaced && !validMove){
-    squares[squareIdBeingReplaced].style.backgroundColor = colorBeingReplaced;
-    squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged;
-  }
-  else{
-    squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged;
-  }
-} 
+    if(squareIdBeingReplaced && validMove){
+      squareIdBeingReplaced = null;
+    }
+    else if(squareIdBeingReplaced && !validMove){
+      squares[squareIdBeingReplaced].style.backgroundColor = colorBeingReplaced;
+      squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged;
+    }
+    else squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged;
+  } 
 
 //Checking for matches
   //check for row of three
-function checkRowForThree(){
-  for(i = 0; i <= 61; i++){
-    let rowOfThree = [i, i+1, i+2];
-    let decidedColor = squares[i].style.backgroundColor;
-    const isBlank = squares[i].style.backgroundColor === '';
+  function checkRowForThree(){
+    for(i = 0; i < 61; i++){
+      let rowOfThree = [i, i+1, i+2];
+      let decidedColor = squares[i].style.backgroundColor;
+      const isBlank = squares[i].style.backgroundColor === '';
 
-    if(rowOfThree.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)){
-      rowofThree.forEach(index => {
-        squares[index].style.backgroundColor = '';
-      score += 3;
-      })
+      if(rowOfThree.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)){
+        score += 3;
+        rowOfThree.forEach(index => {
+          squares[index].style.backgroundColor = '';
+        })
+      }
     }
   }
-}
-checkRowForThree();
-
-
-})
+  checkRowForThree();
+  })
