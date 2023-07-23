@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded',() => {
       let decidedColor = squares[i].style.backgroundColor;
       const isBlank = squares[i].style.backgroundColor === '';
 
-      if(rowOfThree.every(INDEX => squares[INDEX].style.backgroundColor === decidedColor && !isBlank)){ //check uing every if all 3 have same color
+      if(rowOfThree.every(INDEX => squares[INDEX].style.backgroundColor === decidedColor && !isBlank)){ //check using every if all 3 have same color
         
         //if all 3 have same color make all 3 empty
         rowOfThree.forEach(index2 => {
