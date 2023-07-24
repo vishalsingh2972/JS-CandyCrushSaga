@@ -122,8 +122,7 @@ document.addEventListener('DOMContentLoaded',() => {
   checkRowForThree();
 
   window.setInterval(function(){
-    checkRowForThree()
+    checkRowForThree();
   }, 100);
-
 
   })
