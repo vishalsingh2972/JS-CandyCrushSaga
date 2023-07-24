@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded',() => {
   const width = 8;
   const squares = [];
   let score = 0;
-  const audio1 = new Audio('s1.mp3');
-  const audio2 = new Audio('s2.mp3');
-  const audio3 = new Audio('s3.mp3');
-  const audio4 = new Audio('s4.mp3');
+  const audio1 = new Audio('audio/s1.mp3');
+  const audio2 = new Audio('audio/s2.mp3');
+  const audio3 = new Audio('audio/s3.mp3');
+  const audio4 = new Audio('audio/s4.mp3');
 
   const candyColors = [
     'url(images/red-candy.png)',
