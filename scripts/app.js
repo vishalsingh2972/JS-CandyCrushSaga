@@ -121,8 +121,28 @@ document.addEventListener('DOMContentLoaded',() => {
   }
   checkRowForThree();
 
+  //check for column of three
+  function checkColumnForThree(){
+    for(i = 0; i < 48; i++){
+      let columnOfThree = [i, i+width, i+width*2];
+      let decidedColor = squares[i].style.backgroundColor;
+      const isBlank = squares[i].style.backgroundColor === '';
+
+      if(columnOfThree.every(INDEX => squares[INDEX].style.backgroundColor === decidedColor && !isBlank)){ //check using every if all 3 have same color
+        
+        //if all 3 have same color make all 3 empty
+        columnOfThree.forEach(index2 => {
+          squares[index2].style.backgroundColor = '';    
+        })
+        score += 3;    
+      }
+    }
+  }
+  checkColumnForThree();
+
   window.setInterval(function(){
     checkRowForThree();
+    checkColumnForThree();
   }, 100);
 
   })
