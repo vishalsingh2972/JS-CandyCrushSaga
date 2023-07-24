@@ -109,8 +109,12 @@ document.addEventListener('DOMContentLoaded',() => {
       let decidedColor = squares[i].style.backgroundColor;
       const isBlank = squares[i].style.backgroundColor === '';
 
+      const notValid = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55];
+      if(notValid.includes(i)){
+        continue;
+      }
+
       if(rowOfThree.every(INDEX => squares[INDEX].style.backgroundColor === decidedColor && !isBlank)){ //check using every if all 3 have same color
-        
         //if all 3 have same color make all 3 empty
         rowOfThree.forEach(index2 => {
           squares[index2].style.backgroundColor = '';    
@@ -129,7 +133,6 @@ document.addEventListener('DOMContentLoaded',() => {
       const isBlank = squares[i].style.backgroundColor === '';
 
       if(columnOfThree.every(INDEX => squares[INDEX].style.backgroundColor === decidedColor && !isBlank)){ //check using every if all 3 have same color
-        
         //if all 3 have same color make all 3 empty
         columnOfThree.forEach(index2 => {
           squares[index2].style.backgroundColor = '';    
@@ -140,7 +143,50 @@ document.addEventListener('DOMContentLoaded',() => {
   }
   checkColumnForThree();
 
+  //check for row of four
+  function checkRowForFour(){
+    for(i = 0; i < 61; i++){
+      let rowOfFour = [i, i+1, i+2, i+3];
+      let decidedColor = squares[i].style.backgroundColor;
+      const isBlank = squares[i].style.backgroundColor === '';
+
+      const notValid = [5, 6, 7, 13, 14, 15, 21, 22, 23, 29, 30, 31, 37, 38, 39, 45, 46, 47, 53, 54, 55];
+      if(notValid.includes(i)){
+        continue;
+      }
+
+      if(rowOfFour.every(INDEX => squares[INDEX].style.backgroundColor === decidedColor && !isBlank)){ //check using every if all 4 have same color
+        //if all 4 have same color make all 4 empty
+        rowOfFour.forEach(index2 => {
+          squares[index2].style.backgroundColor = '';    
+        })
+        score += 4;    
+      }
+    }
+  }
+  checkRowForFour();
+
+  //check for column of four
+  function checkColumnForFour(){
+    for(i = 0; i < 40; i++){
+      let columnOfFour = [i, i+width, i+width*2, i+width*3];
+      let decidedColor = squares[i].style.backgroundColor;
+      const isBlank = squares[i].style.backgroundColor === '';
+
+      if(columnOfFour.every(INDEX => squares[INDEX].style.backgroundColor === decidedColor && !isBlank)){ //check using every if all 4 have same color
+        //if all 4 have same color make all 4 empty
+        columnOfFour.forEach(index2 => {
+          squares[index2].style.backgroundColor = '';    
+        })
+        score += 4;    
+      }
+    }
+  }
+  checkColumnForFour();
+
   window.setInterval(function(){
+    checkRowForFour();
+    checkColumnForFour();
     checkRowForThree();
     checkColumnForThree();
   }, 100);
