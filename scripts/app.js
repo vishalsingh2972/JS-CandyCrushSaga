@@ -74,9 +74,9 @@ document.addEventListener('DOMContentLoaded',() => {
     colorBeingReplaced = this.style.backgroundColor;
     squareIdBeingReplaced = parseInt(this.id);
     console.log(this.id,'dragdrop');
-    
-    squares[squareIdBeingDragged].style.backgroundColor = colorBeingReplaced;
+
     this.style.backgroundColor = colorBeingDragged;
+    squares[squareIdBeingDragged].style.backgroundColor = colorBeingReplaced;  
   } 
 
   function dragEnd(){
@@ -121,6 +121,10 @@ document.addEventListener('DOMContentLoaded',() => {
   }
   checkRowForThree();
 
+
+  window.setInterval(function(){
+    checkRowForThree()
+  }, 100);
 
 
   })
