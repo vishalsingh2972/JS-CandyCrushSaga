@@ -3,6 +3,7 @@
   width: 560px;
   display: flex;
   flex-wrap: wrap;
+  /*background-color: black;*/
 }
 
 .grid div { /*target div present inside .grid class i.e here small squares*/
