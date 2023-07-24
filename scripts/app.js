@@ -184,6 +184,8 @@ document.addEventListener('DOMContentLoaded',() => {
   }
   checkColumnForFour();
 
+//checkRowForFive(); and checkColumnForFive(); can also be added
+
   window.setInterval(function(){
     checkRowForFour();
     checkColumnForFour();
