@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded',() => {
   const grid = document.querySelector('.grid');
+  const scoreDisplay = document.getElementById('score');
   const width = 8;
   const squares = [];
   let score = 0;
@@ -137,6 +138,7 @@ document.addEventListener('DOMContentLoaded',() => {
           squares[index2].style.backgroundColor = '';    
         })
         score += 3;    
+        scoreDisplay.innerHTML = score;
       }
     }
   }
@@ -155,6 +157,7 @@ document.addEventListener('DOMContentLoaded',() => {
           squares[index2].style.backgroundColor = '';    
         })
         score += 3;    
+        scoreDisplay.innerHTML = score;
       }
     }
   }
@@ -178,6 +181,7 @@ document.addEventListener('DOMContentLoaded',() => {
           squares[index2].style.backgroundColor = '';    
         })
         score += 4;    
+        scoreDisplay.innerHTML = score;
       }
     }
   }
@@ -195,7 +199,8 @@ document.addEventListener('DOMContentLoaded',() => {
         columnOfFour.forEach(index2 => {
           squares[index2].style.backgroundColor = '';    
         })
-        score += 4;    
+        score += 4;   
+        scoreDisplay.innerHTML = score; 
       }
     }
   }
