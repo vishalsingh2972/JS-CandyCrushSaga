@@ -4,10 +4,17 @@ document.addEventListener('DOMContentLoaded',() => {
   const width = 8;
   const squares = [];
   let score = 0;
-  const audio1 = new Audio('audio/s1.mp3');
-  const audio2 = new Audio('audio/s2.mp3');
-  const audio3 = new Audio('audio/s3.mp3');
-  const audio4 = new Audio('audio/s4.mp3');
+
+  // const audio1 = new Audio('audio/s1.mp3');
+  // const audio2 = new Audio('audio/s2.mp3');
+  // const audio3 = new Audio('audio/s3.mp3');
+  // const audio4 = new Audio('audio/s4.mp3');
+  const audios = [
+    new Audio('audio/s1.mp3'),
+    new Audio('audio/s2.mp3'),
+    new Audio('audio/s3.mp3'),
+    new Audio('audio/s4.mp3'),
+  ];
 
   const candyColors = [
     'url(images/red-candy.png)',
@@ -143,7 +150,7 @@ document.addEventListener('DOMContentLoaded',() => {
         })
         score += 3;    
         scoreDisplay.innerHTML = score;
-        audio1.play();
+        audios[0].play();
       }
     }
   }
@@ -163,7 +170,7 @@ document.addEventListener('DOMContentLoaded',() => {
         })
         score += 3;    
         scoreDisplay.innerHTML = score;
-        audio2.play();
+        audios[1].play();
       }
     }
   }
@@ -188,7 +195,7 @@ document.addEventListener('DOMContentLoaded',() => {
         })
         score += 4;    
         scoreDisplay.innerHTML = score;
-        audio3.play();
+        audios[2].play();
       }
     }
   }
@@ -208,7 +215,7 @@ document.addEventListener('DOMContentLoaded',() => {
         })
         score += 4;   
         scoreDisplay.innerHTML = score; 
-        audio4.play();
+        audios[3].play();
       }
     }
   }
