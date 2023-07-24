@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded',() => {
     squareIdBeingReplaced = parseInt(this.id);
     console.log(this.id,'dragdrop');
 
-    this.style.backgroundColor = colorBeingDragged;
     squares[squareIdBeingDragged].style.backgroundColor = colorBeingReplaced;  
+    this.style.backgroundColor = colorBeingDragged;
   } 
 
   function dragEnd(){
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded',() => {
 //Checking for matches
   //check for row of three
   function checkRowForThree(){
-    for(i = 0; i < 61; i++){
+    for(i = 0; i < 62; i++){
       let rowOfThree = [i, i+1, i+2];
       let decidedColor = squares[i].style.backgroundColor;
       const isBlank = squares[i].style.backgroundColor === '';
@@ -120,7 +120,6 @@ document.addEventListener('DOMContentLoaded',() => {
     }
   }
   checkRowForThree();
-
 
   window.setInterval(function(){
     checkRowForThree()
