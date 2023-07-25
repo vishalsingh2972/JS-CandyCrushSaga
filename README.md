@@ -3,7 +3,7 @@
 ## About the Project
 This project is the famous Candy Crush game built using vanilla JavaScript. It is a playable game, but it is still in the early stages of development. The game is played on a 64-square board, with 8 rows and 8 columns. 
 
-As a candy lover and someone who has known the Candy Crush game since its immense popularity, it was a surreal and super fun learning experience to actually build the whole game from scratch.
+As a candy lover and someone who has known the Candy Crush game due to its immense popularity, it was a surreal and super fun learning experience to actually build the whole game from scratch.
 
 ## Ideas for Future Updates
 The project is still under development, and there are a number of features that I would like to add in the future. These features include:
