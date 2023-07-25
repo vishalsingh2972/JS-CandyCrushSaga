@@ -1,4 +1,4 @@
-# JS-CandyCrushSaga
+# JS-Candy Crush Saga 🍫🍬🍭
 
 ## About the Project
 This project is the famous Candy Crush game built using vanilla JavaScript. It is a playable game, but it is still in the early stages of development. The game is played on a 64-square board, with 8 rows and 8 columns. 
