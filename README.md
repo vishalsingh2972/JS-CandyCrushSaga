@@ -26,5 +26,7 @@ I'm always looking for ways to improve the game, so if you have any suggestions 
   
 ## Project Demo
 
+https://github.com/vishalsingh2972/JS-CandyCrushSaga/assets/106817047/662b3696-96e3-4be1-a1af-3c1a7f564117
+
 
 
